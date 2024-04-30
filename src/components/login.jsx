@@ -17,7 +17,6 @@ export default function Login() {
   const [decoded, setDecoded] = useState("");
   const [show, setShow] = useState(false);
   const navigate = useNavigate();
-
   const toggleButton = () => {
     setShow(!show);
   };
@@ -27,21 +26,26 @@ export default function Login() {
     let response = await axios.get("http://localhost:8800/users");
     let resData = response.data;
 
+    const email = emailRef.current.value;
+    const password = passwordRef.current.value;
+    let emailFound = false;
     for (let i = 0; i < resData.length; i++) {
-      if (emailRef.current.value !== resData[i].email) {
-        console.log("This is email ref", emailRef.current.value);
-        console.log("This is from server", resData[i].email);
-        notifyRed("🕵️‍♂️ Uh-oh, we couldn't find your login details.");
-        emailRef.current.value = "";
-        passwordRef.current.value = "";
-      } else {
-        if (passwordRef.current.value === resData[i].pass) {
+      if (email === resData[i].email) {
+        emailFound = true;
+        if (password === resData[i].pass) {
           navigate("/dashboard");
+          return;
         } else {
           notifyRed("🛑 Password mismatch! Let's give it another shot.");
           passwordRef.current.value = "";
+          return;
         }
       }
+    }
+    if (!emailFound) {
+      notifyRed("🕵️‍♂️ Uh-oh, we couldn't find your login details.");
+      emailRef.current.value = "";
+      passwordRef.current.value = "";
     }
   };
 
