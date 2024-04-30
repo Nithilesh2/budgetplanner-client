@@ -1,0 +1,44 @@
+.mainDashboard {
+  height: 100%;
+  width: 100%;
+}
+
+.totalData {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.greetings {
+  z-index: 1;
+  margin-top: 35px;
+  font-family: "Poppins", sans-serif;
+  font-size: 1.6rem;
+  font-weight: 500;
+}
+.barChart {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 70px;
+  flex-wrap: wrap;
+}
+
+.bar1,
+.bar2 {
+  height: 350px;
+  width: 90%;
+  max-width: 700px;
+  margin: 15px 30px;
+}
+
+@media screen and (max-width: 680px) {
+  .greetings {
+    z-index: 0;
+  }
+}
