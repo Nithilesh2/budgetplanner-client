@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react"
+import React, { useEffect, useRef, useState } from "react"
 import { toast } from "react-toastify"
 import AppContext from "./AppContext"
 import { jwtDecode } from "jwt-decode"
@@ -7,7 +7,13 @@ const AppStore = (props) => {
   const notifyFalse = (val) => {
     toast.warn(`${val}`)
   }
+  const notifyRed = (val) => {
+    toast.error(`${val}`)
+  }
   const notifyTrue = (val) => toast.success(`${val}`)
+
+  const emailRef = useRef()
+  const passwordRef = useRef()
 
   const [category, setCategory] = useState("")
   const [amount, setAmount] = useState("")
@@ -20,7 +26,11 @@ const AppStore = (props) => {
   const [decodedName, setDecodedName] = useState("")
   const [merge, setMerge] = useState({})
   const [dateCreated, setDateCreated] = useState([])
+  const [show, setShow] = useState(false)
 
+  const toggleButton = () => {
+    setShow(!show)
+  }
   const initializeMergeState = () => {
     const savedMerge = localStorage.getItem("merge")
     if (savedMerge) {
@@ -227,6 +237,10 @@ const AppStore = (props) => {
     }
   }, [decoded, decodedName])
 
+  const logoutBtnClicked = () => {
+    setDecoded("")
+  }
+
   return (
     <AppContext.Provider
       value={{
@@ -255,6 +269,11 @@ const AppStore = (props) => {
         loginClicked,
         enterKey,
         formatDate,
+        notifyRed,
+        emailRef,
+        passwordRef,
+        toggleButton,
+        logoutBtnClicked,
       }}
     >
       {props.children}

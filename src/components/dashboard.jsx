@@ -1,13 +1,12 @@
-import React, { useContext } from "react";
-import Navbar from "./navbar";
-import "../css/dashboard.css";
-import { Bar, Pie } from "react-chartjs-2";
-import "chart.js/auto";
-import AppContext from "../context/AppContext";
+import React, { useContext } from "react"
+import Navbar from "./navbar"
+import "../css/dashboard.css"
+import { Bar, Pie } from "react-chartjs-2"
+import "chart.js/auto"
+import AppContext from "../context/AppContext"
 
 function Dashboard() {
-  const { catData, amoData, budget,  decodedName } =
-    useContext(AppContext);
+  const { catData, amoData, budget, decoded } = useContext(AppContext)
 
   const userData = {
     labels: catData,
@@ -26,7 +25,7 @@ function Dashboard() {
         borderWidth: 2,
       },
     ],
-  };
+  }
 
   const options = {
     maintainAspectRatio: false,
@@ -39,7 +38,7 @@ function Dashboard() {
         },
       ],
     },
-  };
+  }
 
   return (
     <>
@@ -47,7 +46,10 @@ function Dashboard() {
         <Navbar />
         <div className="totalData">
           <h1 className="greetings">
-            {decodedName ? `Welcome back, ${decodedName}` : "Welcome back, User"}
+            
+            {decoded
+              ? `Welcome back, ${decoded}`
+              : "Welcome back, User"}
           </h1>
           <div className="barChart">
             <div className="bar1">
@@ -68,7 +70,7 @@ function Dashboard() {
         </div>
       </main>
     </>
-  );
+  )
 }
 
-export default Dashboard;
+export default Dashboard
