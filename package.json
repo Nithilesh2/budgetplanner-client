@@ -7,7 +7,7 @@
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
     "@testing-library/user-event": "^13.2.1",
-    "@babel/plugin-proposal-private-property-in-object": "^4.1.0",
+    "@babel/plugin-proposal-private-property-in-object": "^7.14.0",
     "axios": "^1.6.8",
     "chart.js": "^4.4.2",
     "jwt-decode": "^4.0.0",

@@ -1,4 +1,3 @@
-import style from "../css/expensesLi.css"
 import React, { useEffect, useState } from "react"
 
 export default function ExpenseLi(props) {
