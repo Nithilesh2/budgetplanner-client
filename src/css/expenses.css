@@ -622,8 +622,8 @@ ion-icon {
 
   .expenseDate {
     height: 25px;
-    max-width: 130px;
-    width: 70%;
+    max-width: 150px;
+    width: 75%;
     padding-left: 7px;
     font-size: 0.56rem;
     margin-left: 10px;

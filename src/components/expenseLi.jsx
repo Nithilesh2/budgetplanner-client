@@ -1,16 +1,19 @@
-import React, { useEffect, useState } from "react"
+import React
+// , { useEffect, useState }
+  from "react"
 
 export default function ExpenseLi(props) {
-  const [date, setDate] = useState()
+  // const [date, setDate] = useState("")
 
-  useEffect(() => {
-    const today = new Date().toISOString().split("T")[0]
-    setDate(today)
-  }, [])
+  // const today = new Date().toISOString().split("T")[0]
 
-  const dateInputChange = (eve) => {
-    setDate(eve.target.value)
-  }
+  // useEffect(() => {
+  //   setDate(today)
+  // }, [today])
+
+  // const dateInputChange = (eve) => {
+  //   setDate(eve.target.value)
+  // }
   return (
     <>
       <li>
@@ -22,10 +25,10 @@ export default function ExpenseLi(props) {
             onClick={props.onDelete}
           ></i>
         </span>
-          <i
-            className="fa-solid fa-trash expenseActionDeactive"
-            onClick={props.onDelete}
-          ></i>
+        <i
+          className="fa-solid fa-trash expenseActionDeactive"
+          onClick={props.onDelete}
+        ></i>
 
         <span className="expenseDate">
           {/* {props.date.toLocaleString("default", {
@@ -35,8 +38,8 @@ export default function ExpenseLi(props) {
           <input
             className="expenseDate"
             type="date"
-            value={date}
-            onChange={dateInputChange}
+            // value={date}
+            // onChange={dateInputChange}
           />
         </span>
       </li>
