@@ -16,9 +16,16 @@ export default function ExpenseLi(props) {
       <li>
         <span className="expenseName">{props.name}</span>
         <span className="expenseCost">{props.value}</span>
-        <span className="expenseAction">
-          <i className="fa-solid fa-trash" onClick={props.onDelete}></i>
+        <span className="expenseAction expenseActionSpan">
+          <i
+            className="fa-solid fa-trash expenseActionActive"
+            onClick={props.onDelete}
+          ></i>
         </span>
+          <i
+            className="fa-solid fa-trash expenseActionDeactive"
+            onClick={props.onDelete}
+          ></i>
 
         <span className="expenseDate">
           {/* {props.date.toLocaleString("default", {

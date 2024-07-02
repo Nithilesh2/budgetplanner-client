@@ -330,7 +330,9 @@ ion-icon {
   font-weight: 500;
   cursor: default;
 }
-
+.expenseActionDeactive {
+  display: none;
+}
 .expenseData li {
   height: 100%;
   width: 95%;
@@ -606,11 +608,31 @@ ion-icon {
   .expenseData .expenseAction {
     margin-left: 27px;
   }
+
+  .expenseActionDeactive {
+    display: block;
+    padding-right: 30px;
+  }
+  .expenseActionSpan,
+  .expenseActionActive {
+    display: none;
+    height: 0;
+    width: 0;
+  }
+
+  .expenseDate {
+    height: 25px;
+    max-width: 130px;
+    width: 70%;
+    padding-left: 7px;
+    font-size: 0.56rem;
+    margin-left: 10px;
+  }
 }
 
-@media only screen and (max-width: 340px) {
+@media only screen and (max-width: 360px) {
   .expenseHeading li {
-    font-size: 0.8rem;
+    display: none;
   }
   .expenseData li {
     font-size: 0.775rem;
